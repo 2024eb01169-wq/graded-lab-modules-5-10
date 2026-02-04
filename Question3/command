@@ -1,1 +1,37 @@
+1. Creating the Script and Sample Files
+   touch marks.txt
+   touch validate_results.sh
 
+2. Editing the Script and Sample Files
+  a.nano validate_results.sh
+    Code:
+       #!/bin/bash
+       fail_one=0
+       pass_all=0
+       while IFS=',' read -r r n m1 m2 m3
+       do
+       fail=0
+      [ $m1 -lt 33 ] && ((fail++))
+      [ $m2 -lt 33 ] && ((fail++))
+      [ $m3 -lt 33 ] && ((fail++))
+      if [ $fail -eq 1 ]; then
+     echo "$n failed exactly one subject"
+     ((fail_one++))
+     elif [ $fail -eq 0 ]; then
+    echo "$n passed all subject"
+    ((pass_all++))
+     fi
+     done < marks.txt
+     echo "Count failed one subject: $fail_one"
+     echo "Count passed all subject: $pass_all"
+ 
+    b.nano marks.txt
+        101,Ram,45,30,60
+        102,Sita,70,80,90
+        103,Hari,32,40,35
+
+3. Setting Executable Permissions
+    chmod +x validate_results.sh
+
+4. Running the script
+    ./validate_results.sh
