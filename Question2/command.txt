@@ -31,7 +31,10 @@
       echo "Latest ERROR: $latest"
       } > "$outfile"
   b.nano sample.log
-        
+        2025-01-12 10:15:23 INFO System started
+        2025-01-12 10:16:01 WARNING Disk almost full
+        2025-01-12 10:16:45 ERROR Failed to load module
+        2025-01-12 10:17:10 ERROR Network timeout
 
 3. Setting Executable Permissions
     chmod +x log_analyzer.sh
