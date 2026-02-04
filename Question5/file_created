@@ -1,3 +1,5 @@
 User: coder
 Environment: Linux Terminal
 Script: sync.sh
+Files: dirA, dirB
+       
