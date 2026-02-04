@@ -1,0 +1,9 @@
+The objective was to automate grade validation for a student dataset.
+
+Input Processing: The script reads marks.txt using a comma as the Internal Field Separator (IFS=',').
+
+Conditional Logic: It checks three subject variables (m1, m2, m3) against a threshold of 33.
+
+Counting: For each student, it counts the number of failures. If a student fails exactly one subject, the fail_one counter is incremented; if they fail none, the pass_all counter is incremented.
+
+Final Report: After reading the entire file, the script prints the total summary of students who passed all or failed exactly one.
