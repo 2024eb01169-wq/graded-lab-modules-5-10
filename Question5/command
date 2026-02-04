@@ -9,6 +9,10 @@ echo "Same content" > dirB/common.txt
 echo "File in A" > dirA/diff.txt
 echo "File in B" > dirB/diff.txt
 
+Directory Input:
+dirA/: a.txt, common.txt, diff.txt
+dirB/: b.txt, common.txt, diff.txt
+
 # Create and configure the script
 touch sync.sh
 nano sync.sh
