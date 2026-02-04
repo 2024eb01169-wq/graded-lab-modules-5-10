@@ -1,1 +1,40 @@
+1. Creating the Script and Sample Files
+   touch log_analyzer.sh
+   touch sample.log
 
+2. Editing the Script and Sample Files
+  a.nano log_analyzer.sh
+    Code:
+      #!/bin/bash
+      if [ $# -ne 1 ]; then
+      echo "Usage: $0 <logfile>"
+      exit 1
+      fi
+      total=$(wc -l < "$1")
+      info=$(grep -c "INFO" "$1")
+      warning=$(grep -c "WARNING" "$1")
+      error=$(grep -c "ERROR" "$1")
+      latest=$(grep "ERROR" "$1" | tail -1)
+      # File Generation Setup
+      date=$(date +%F)
+      outfile="logsummary_$date.txt"
+      echo "Total entries: $total"
+      echo "INFO: $info"
+      echo "WARNING: $warning"
+      echo "ERROR: $error"
+      echo "Latest ERROR: $latest"
+      {
+      echo "Total entries: $total"
+      echo "INFO: $info"
+      echo "WARNING: $warning"
+      echo "ERROR: $error"
+      echo "Latest ERROR: $latest"
+      } > "$outfile"
+  b.nano sample.log
+        
+
+3. Setting Executable Permissions
+    chmod +x log_analyzer.sh
+
+4. Running the script
+    ./log_analyzer.sh sample.log
