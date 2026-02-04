@@ -1,0 +1,10 @@
+Script Logic:
+1. Argument Check: The script uses [ "$#" -ne 1 ] to ensure the user provides exactly one file or directory path.
+2. File Analysis: If the path is a file (-f), it runs 'wc' to count lines, words, and characters.
+3. Directory Analysis: If the path is a directory (-d), it uses 'find' and 'wc -l' to count the total files and .txt files.
+4. Error Handling: If the path doesn't exist, it prints an error message.
+
+Terminal Workflow:
+- 'touch' was used to initialize the files.
+- 'nano' acted as the text editor for writing the script.
+- 'chmod +x' was necessary to grant execution privileges to the .sh file.
