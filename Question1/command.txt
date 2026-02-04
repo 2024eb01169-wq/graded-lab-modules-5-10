@@ -1,1 +1,33 @@
+1. Creating the Script and Sample Files
+   touch analyze.sh
+   touch sample.txt
+
+2. Editing the Script and Sample Files
+  a.nano analyze.sh
+    Code:
+       #!/bin/bash
+       # Check if exactly one argument is provided
+       if [ "$#" -ne 1 ]; then
+       echo "Error: Exactly one argument required."
+       exit 1
+       fi
+       # Check if the argument is a regular file
+       if [ -f "$1" ]; then
+       wc "$1"
+       # Check if the argument is a directory
+       elif [ -d "$1" ]; then
+       echo "Total files: $(find "$1" -type f | wc -l)"
+       echo "Text files: $(find "$1" -type f -name "*.txt" | wc -l)"
+       # If the path does not exist
+       else
+       echo "Error: Path does not exist."
+       fi
+    b.nano sample.txt
+        
+
+3. Setting Executable Permissions
+    chmod +x analyze.sh
+
+4. Running the script
+    ./analyze.sh sample.txt
 
