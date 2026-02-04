@@ -1,0 +1,7 @@
+The objective of this task was to create a script that validates email formats using Regular Expressions (Regex).
+
+Validation Logic: The script uses grep -E with a regex pattern ^[a-zA-Z0-9]+@[a-zA-Z]+\.com$ to identify standard email structures.
+
+Processing:
+Valid emails are sorted and filtered for uniqueness (uniq) before being saved to valid.txt.
+Invalid emails (those not matching the pattern) are captured using the invert-match flag -v and saved to invalid.txt.
