@@ -1,0 +1,7 @@
+The objective was to write a shell script that compares the contents of two directories.
+
+Unique File Identification: The script utilizes the comm command with process substitution (<()). comm -23 finds files unique to the first directory, while comm -13 finds those unique to the second.
+
+Content Comparison: A for loop iterates through files present in both directories (found via comm -12).
+
+Integrity Check: The cmp -s (silent) command compares the bit-for-bit content of common files. If the exit status is non-zero (indicating a difference), it echoes that the file "differs".
