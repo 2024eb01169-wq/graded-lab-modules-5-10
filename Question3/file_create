@@ -1,0 +1,4 @@
+User: coder
+Environment: Linux Terminal
+Script: log_analyzer.sh
+Target File: sample.log
