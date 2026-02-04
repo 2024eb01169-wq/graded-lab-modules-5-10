@@ -1,0 +1,4 @@
+User: coder
+Environment: Linux Terminal
+Script: emailcleaner.sh
+Target File: emails.txt
