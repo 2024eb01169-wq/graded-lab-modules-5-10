@@ -1,4 +1,4 @@
 User: coder
 Environment: Linux Terminal
-Script: log_analyzer.sh
-Target File: sample.log
+Script: validate_results.sh
+Target File: marks.txt
