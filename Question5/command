@@ -1,0 +1,28 @@
+# Create the test directories
+mkdir dirA dirB
+
+# Create test files with varying content
+echo "Hello from A" > dirA/a.txt
+echo "Hello from B" > dirB/b.txt
+echo "Same content" > dirA/common.txt
+echo "Same content" > dirB/common.txt
+echo "File in A" > dirA/diff.txt
+echo "File in B" > dirB/diff.txt
+
+# Create and configure the script
+touch sync.sh
+nano sync.sh
+  code:
+#!/bin/bash
+echo "Only in dirA:"
+comm -23 <(ls dirA | sort) <(ls dirB | sort)
+echo "Only in dirB:"
+comm -13 <(ls dirA | sort) <(ls dirB | sort)
+for f in $(comm -12 <(ls dirA | sort) <(ls dirB | sort))
+do
+  cmp -s dirA/$f dirB/$f || echo "$f differs"
+done
+  
+#Execute  
+chmod +x sync.sh
+./sync.sh
