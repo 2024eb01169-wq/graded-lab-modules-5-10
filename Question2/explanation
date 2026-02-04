@@ -1,0 +1,6 @@
+The script performs the following operations:
+1. Input Validation: Checks if exactly one log file is passed as an argument ($1).
+2. Line Counting: Uses 'wc -l' to determine the total number of log entries.
+3. Pattern Matching: Uses 'grep -c' to count occurrences of specific keywords: "INFO", "WARNING", and "ERROR".
+4. Tail Extraction: Finds the last occurrence of an "ERROR" line using 'grep' and 'tail -1' to identify the most recent issue.
+5. Reporting: Prints the results to the terminal and redirects the same summary into a dated output file (logsummary_YYYY-MM-DD.txt).
