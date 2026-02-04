@@ -1,0 +1,25 @@
+1. Creating the Script and Sample Files
+   touch emails.txt
+   touch emailcleaner.sh
+
+2. Editing the Script and Sample Files
+  a.nano emailcleaner.sh
+    Code:
+      #!/bin/bash
+      grep -E '^[a-zA-Z0-9]+@[a-zA-Z]+\.com$' emails.txt | sort | uniq > valid.txt
+      grep -v -E '^[a-zA-Z0-9]+@[a-zA-Z]+\.com$' emails.txt > invalid.txt
+  b.nano emails.txt
+        abc@gmail.com
+        test@site.com
+        user22@yahoo.com
+        bad@email
+
+3. Setting Executable Permissions
+    chmod +x emailcleaner.sh
+
+4. Running the script
+    ./emailcleaner.sh
+
+5. Verify
+   cat valid.txt
+   cat invalid.txt
