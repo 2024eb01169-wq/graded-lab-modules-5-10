@@ -9,7 +9,7 @@ echo "Same content" > dirB/common.txt
 echo "File in A" > dirA/diff.txt
 echo "File in B" > dirB/diff.txt
 
-Directory Input:
+Directory Structure:
 dirA/: a.txt, common.txt, diff.txt
 dirB/: b.txt, common.txt, diff.txt
 
