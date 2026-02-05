@@ -1,0 +1,8 @@
+# Create the C source file for signal handling
+nano signals.c
+
+# Compile the C program into an executable named 'signals'
+gcc signals.c -o signals
+
+# Execute the compiled program
+./signals
