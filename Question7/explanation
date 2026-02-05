@@ -1,0 +1,13 @@
+A breakdown of how the logic in patterns.sh works.
+
+Logic Overview:
+
+Case Normalization: The script uses tr 'A-Z' 'a-z' to convert all input words to lowercase so that "Apple" is treated the same as "apple".
+
+Vowels Logic: The Regex ^[aeiou]+$ matches words consisting only of vowels.
+
+Consonants Logic: The Regex ^[bcdfghjklmnpqrstvwxyz]+$ matches words consisting only of consonants (including 'y' in this specific script's context).
+
+Mixed Logic: The Regex ^[bcdfghjklmnpqrstvwxyz].*[aeiou] matches words that start with a consonant and contain at least one vowel later in the word.
+
+Redirection: The > operator at the top of the script clears the output files, and >> appends each matching word to the respective file.
