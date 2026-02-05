@@ -1,0 +1,13 @@
+A breakdown of how the logic in signals.c works to handle communication between parent and child processes using signals.
+
+Logic Overview:
+
+Signal Registration: The program uses the signal() function to register two custom handler functions: term() for SIGTERM and intr() for SIGINT.
+
+Process Branching: The program forks twice to create two child processes.
+
+Asynchronous Communication: * The first child sleeps for 5 seconds and then sends a SIGTERM signal to its parent using kill(getppid(), SIGTERM).
+
+The second child sleeps for 10 seconds and sends a SIGINT signal to the parent.
+
+Signal Handling: When the parent receives SIGTERM, it executes the term() function, which prints "SIGTERM received" and exits the program immediately. Because the parent exits upon the first signal, the 10-second SIGINT is never processed in this specific execution.
