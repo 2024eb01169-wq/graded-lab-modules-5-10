@@ -1,17 +1,16 @@
+# Create the input file
+nano words.txt
 
-# Step 1: Create a logs directory and dummy log files
-mkdir logs
-touch logs/app.log logs/error.log logs/db.log logs/temp.log
+# Create the bash script
+nano patterns.sh
 
-# Step 2: Set timestamps back for specific files (simulating old files)
-touch -d "2023-01-01" logs/app.log logs/error.log
+# Make the script executable
+chmod +x patterns.sh
 
-# Step 3: Create the archival script
-touch archive_logs.sh
-nano archive_logs.sh
+# Run the script with words.txt as an argument
+./patterns.sh words.txt
 
-# Step 4: Execute the script and verify
-chmod +x archive_logs.sh
-./archive_logs.sh
-ls -l
-ls logs/
+# Display results
+cat vowels.txt
+cat consonants.txt
+cat mixed.txt
