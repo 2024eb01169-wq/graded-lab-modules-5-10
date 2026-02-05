@@ -1,0 +1,19 @@
+#bg_move.sh
+
+#!/bin/bash
+
+# Create backup directory
+mkdir -p "$1/BACKUP"
+
+# Print script's own PID
+echo "Script PID: $$"
+
+# Loop through files and move them in the background
+for file in "$1"/*; do
+    mv "$file" "$1/BACKUP/" &
+    echo "Moved with PID $!"
+done
+
+# Wait for all background tasks to finish
+wait
+echo "All files moved successfully"
