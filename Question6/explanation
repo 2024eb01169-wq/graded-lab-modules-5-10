@@ -1,0 +1,13 @@
+The objective was to create a Bash script that performs statistical analysis on a text file.
+
+Word Extraction: The script uses tr -cs 'A-Za-z' '\n' to strip punctuation and convert all words into a single-column list.
+
+Metric Calculations:
+
+Longest/Shortest: Uses awk to print the length of each string, then sort and head to find the extremes.
+
+Average: Uses awk to sum the total characters and divide by the total word count (s/c).
+
+Uniqueness: Converts all text to lowercase, sorts them, and uses uniq | wc -l to count distinct words.
+
+Verification: The script was tested against input.txt containing the sentence: "This is input simply."
