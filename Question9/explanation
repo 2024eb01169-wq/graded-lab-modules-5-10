@@ -1,0 +1,11 @@
+A breakdown of how the logic in zombie.c works to prevent permanent zombie processes.
+
+Logic Overview:
+
+Process Creation: The program uses a for loop to call fork() three times. Each time fork() == 0 (indicating the child process), that child immediately exits with return 0.
+
+Zombie State: When a child process finishes before its parent, it briefly becomes a "zombie" process. It stays in the system process table so the parent can read its exit status.
+
+The wait() Function: The parent process uses a while loop with wait(NULL). This system call blocks the parent until a child process terminates.
+
+Cleaning/Reaping: By calling wait(), the parent "reaps" the child. This collects the exit status and allows the operating system to fully remove the child's PID from the process table, effectively "cleaning" the zombie.
