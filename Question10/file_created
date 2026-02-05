@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <signal.h>
+#include <unistd.h>
+#include <stdlib.h>
+
+void term(int s){printf("SIGTERM received\n"); exit(0); }
+void intr(int s){printf("SIGINT received\n"); }
+
+int main() {
+signal(SIGTERM, term);
+signal(SIGINT, intr);
+
+if(fork()==0){ sleep(5); kill(getppid(), SIGTERM); }
+if(fork()==0){ sleep(10); kill(getppid(), SIGINT); }
+
+while(1) sleep(1);
+}
