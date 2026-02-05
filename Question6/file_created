@@ -1,0 +1,18 @@
+a. input.txt
+   This is input simply.
+
+b. metrics.sh
+#!/bin/bash
+words=$(tr -cs 'A-Za-z' '\n' < input.txt)
+
+echo "Longest word:"
+echo "$words" | awk '{print length, $0}' | sort -nr | head -1
+
+echo "Shortest word:"
+echo "$words" | awk '{print length, $0}' | sort -n | head -1
+
+echo "Average length:"
+echo "$words" | awk '{s+=length; c++} END {print s/c}'
+
+echo "Unique words:"
+echo "$words" | tr 'A-Z' 'a-z' | sort | uniq | wc -l
