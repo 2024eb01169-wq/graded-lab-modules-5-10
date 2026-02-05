@@ -1,0 +1,15 @@
+# words.txt
+aei BCD hello sky Apple try queue stone
+
+#pattern.sh
+#!/bin/bash
+
+>vowels.txt
+>consonants.txt
+>mixed.txt
+
+for w in $(tr 'A-Z' 'a-z' < "$1"); do
+grep -qE '^[aeiou]+$' <<< "$w" && echo "$w" >> vowels.txt
+grep -qE '^[bcdfghjklmnpqrstvwxyz]+$' <<< "$w" && echo "$w" >> consonants.txt
+grep -qE '^[bcdfghjklmnpqrstvwxyz].*[aeiou]' <<< "$w" && echo "$w">> mixed.txt
+done
