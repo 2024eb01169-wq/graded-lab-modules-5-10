@@ -1,0 +1,13 @@
+A breakdown of how the logic in bg_move.sh works.
+
+Logic Overview:
+
+Directory Creation: The script uses mkdir -p "$1/BACKUP" to create a backup folder inside the provided directory argument.
+
+Process Tracking:
+$$ is a special variable that returns the PID of the current shell script.
+$! returns the PID of the most recently executed background command.
+
+Background Execution: The & symbol at the end of the mv command forces the move operation to run as a background process, allowing the loop to continue immediately without waiting for the file to finish moving.
+
+Synchronization: The wait command tells the script to pause and wait for all background processes (the move operations) to complete before printing the final success message.
