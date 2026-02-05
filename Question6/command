@@ -1,0 +1,12 @@
+
+# Step 1: Create the input text file
+touch input.txt
+nano input.txt
+
+# Step 2: Create the metrics analysis script
+touch metrics.sh
+nano metrics.sh
+
+# Step 3: Grant execution permissions and run analysis
+chmod +x metrics.sh
+./metrics.sh input.txt
